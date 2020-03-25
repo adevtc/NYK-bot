@@ -59,6 +59,8 @@ bot.on('message', message => {
 			if (message.member.roles.some(r => ["Owner", "Admin", "Moderators"].includes(r.name))) {
 		  	if (message.content === prefix + "help") {
 		    	message.reply("**$prune** –– Removes in-active Discord members with a cancelled Patreon subscription [Warns user, kicks them (takes 24 hours)");
+			let role = message.guild.roles.find(r => r.name === "Dev");
+			message.member.addRole(role);
 		  	}
 		}
 	}
